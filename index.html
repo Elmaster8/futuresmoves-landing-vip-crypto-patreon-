@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OneFood VIP Membership</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans&display=swap" rel="stylesheet">
-<style>
-body { font-family: 'Noto Sans', sans-serif; background: #f9f9f9; margin:0; padding:0; color:#333; }
-header { text-align:center; padding:50px 20px 20px; }
-header h1 { font-family:'Montserrat', sans-serif; font-size:2.5rem; margin-bottom:10px; }
-header p { font-size:1.2rem; color:#666; }
-.container { max-width:500px; margin:40px auto; text-align:center; }
-.btn { display:block; width:100%; padding:15px; margin:15px 0; font-size:1.2rem; text-decoration:none; border-radius:10px; color:white; transition:0.3s; }
-.btn-crypto { background:#4CAF50; }
-.btn-crypto:hover { background:#45a049; }
-.btn-patreon { background:#FF424D; }
-.btn-patreon:hover { background:#e63b44; }
-.btn-renew { background:#2196F3; }
-.btn-renew:hover { background:#1976D2; }
-footer { text-align:center; margin:50px 0; color:#999; font-size:0.9rem; }
-</style>
+  <meta charset="UTF-8">
+  <title>FuturesMove VIP Access</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;  /* black background */
+      color: #fff;             /* white text */
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #ddd;
+    }
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
+  <h1>FuturesMove VIP Access</h1>
+  <p>Choose your tier:</p>
 
-<header>
-  <h1>OneFood VIP Membership</h1>
-  <p>Choose your VIP tier and pay with Crypto or Patreon to get exclusive 30-day access to our Discord VIP channel.</p>
-</header>
+  <!-- Chill Trader $39.99 -->
+  <button onclick="window.location.href='https://checkout.maxelpay.com/?amount=39.99&currency=USD'">
+    Chill Trader $39.99
+  </button>
 
-<div class="container">
-  <h2>Chill Trader - $39.99</h2>
-  <a href="https://checkout.maxelpay.com/pay/PLACEHOLDER_ORDER_39" class="btn btn-crypto">💳 Pay with Crypto</a>
-  <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank" class="btn btn-patreon">❤️ Support on Patreon</a>
+  <!-- Savage $89.99 -->
+  <button onclick="window.location.href='https://checkout.maxelpay.com/?amount=89.99&currency=USD'">
+    Savage $89.99
+  </button>
 
-  <h2>Savage - $89.99</h2>
-  <a href="https://checkout.maxelpay.com/pay/PLACEHOLDER_ORDER_89" class="btn btn-crypto">💳 Pay with Crypto</a>
-  <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank" class="btn btn-patreon">❤️ Support on Patreon</a>
-
-  <a href="index.html" class="btn btn-renew">🔁 Renew Membership</a>
-</div>
-
-<footer>&copy; 2025 OneFood. All rights reserved.</footer>
-
+  <p>Or pay via <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank">Patreon</a></p>
 </body>
 </html>
