@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>FuturesMove VIP Access</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -91,22 +92,67 @@
   <p class="subtitle">Choose your tier or support via Patreon. Join the elite community now!</p>
 
   <div class="tiers">
-    <!-- Chill Trader $39.99 -->
-    <div class="card" onclick="window.location.href='https://checkout.maxelpay.com/?amount=39.99&currency=USD'">
+    <div class="card" id="chill-trader">
       <h2>Chill Trader</h2>
       <p>$39.99 / month</p>
       <button>Pay with Crypto</button>
     </div>
 
-    <!-- Savage $89.99 -->
-    <div class="card" onclick="window.location.href='https://checkout.maxelpay.com/?amount=89.99&currency=USD'">
+    <div class="card" id="savage">
       <h2>Savage</h2>
       <p>$89.99 / month</p>
       <button>Pay with Crypto</button>
     </div>
   </div>
 
-  <!-- Patreon -->
   <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank" class="patreon-link">Or support via Patreon</a>
+
+  <script>
+    const API_KEY = "oYvslQg7QQ2CN7ZKRbdccM0JYFWqYjHg";
+    const API_SECRET = "jpDNhnU8S1fPN9f8oxw0rQfn5S9bg3Zz";
+    const REDIRECT_SUCCESS = "https://elmaster8.github.io/futuresmoves-landing-vip-crypto-patreon-/success.html";
+    const REDIRECT_CANCEL = "https://elmaster8.github.io/futuresmoves-landing-vip-crypto-patreon-/cancel.html";
+    const WEBHOOK_URL = "https://YOUR_PIPEDREAM_WEBHOOK_URL"; // Replace with your webhook
+
+    async function createMaxelPayLink(amount, tierName, email="user@example.com") {
+      const payload = {
+        orderID: "FM-" + Math.floor(Math.random() * 1000000),
+        amount: amount.toString(),
+        currency: "USD",
+        timestamp: Math.floor(Date.now() / 1000).toString(),
+        userName: tierName,
+        siteName: "FuturesMove",
+        userEmail: email,
+        redirectUrl: REDIRECT_SUCCESS,
+        websiteUrl: "https://elmaster8.github.io/futuresmoves-landing-vip-crypto-patreon-/",
+        cancelUrl: REDIRECT_CANCEL,
+        webhookUrl: WEBHOOK_URL
+      };
+
+      const encrypted = CryptoJS.AES.encrypt(JSON.stringify(payload), API_SECRET).toString();
+
+      const response = await fetch("https://api.maxelpay.com/v1/prod/merchant/order/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-API-KEY": API_KEY
+        },
+        body: JSON.stringify({ payload: encrypted })
+      });
+
+      const data = await response.json();
+      return data.checkoutUrl; // MaxelPay link
+    }
+
+    document.getElementById("chill-trader").addEventListener("click", async () => {
+      const link = await createMaxelPayLink(39.99, "Chill Trader");
+      window.location.href = link;
+    });
+
+    document.getElementById("savage").addEventListener("click", async () => {
+      const link = await createMaxelPayLink(89.99, "Savage");
+      window.location.href = link;
+    });
+  </script>
 </body>
 </html>
