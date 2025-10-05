@@ -3,59 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <title>FuturesMove VIP Access</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #000;  /* black background */
-      color: #fff;             /* white text */
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
       text-align: center;
-      margin-top: 50px;
     }
     h1 {
-      font-size: 36px;
+      font-size: 48px;
       margin-bottom: 20px;
+      letter-spacing: 1px;
     }
-    p {
-      font-size: 18px;
+    p.subtitle {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #ccc;
+    }
+    .tiers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
       margin-bottom: 30px;
     }
-    button {
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 18px;
+    .card {
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      width: 220px;
       cursor: pointer;
-      background-color: #fff;
-      color: #000;
+      transition: all 0.3s ease;
+      border: 2px solid #fff;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      background: #222;
+      border-color: #00bfff;
+    }
+    .card h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .card p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+    .card button {
+      padding: 12px 25px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
       transition: 0.3s;
     }
-    button:hover {
-      background-color: #ddd;
+    .card button:hover {
+      background: #00bfff;
+      color: #fff;
     }
-    a {
+    .patreon-link {
+      font-size: 18px;
       color: #fff;
       text-decoration: underline;
+      margin-top: 20px;
+      display: inline-block;
+      transition: 0.3s;
     }
-    a:hover {
-      color: #ccc;
+    .patreon-link:hover {
+      color: #ff424d;
     }
   </style>
 </head>
 <body>
   <h1>FuturesMove VIP Access</h1>
-  <p>Choose your tier:</p>
+  <p class="subtitle">Choose your tier or support via Patreon. Join the elite community now!</p>
 
-  <!-- Chill Trader $39.99 -->
-  <button onclick="window.location.href='https://checkout.maxelpay.com/?amount=39.99&currency=USD'">
-    Chill Trader $39.99
-  </button>
+  <div class="tiers">
+    <!-- Chill Trader $39.99 -->
+    <div class="card" onclick="window.location.href='https://checkout.maxelpay.com/?amount=39.99&currency=USD'">
+      <h2>Chill Trader</h2>
+      <p>$39.99 / month</p>
+      <button>Pay with Crypto</button>
+    </div>
 
-  <!-- Savage $89.99 -->
-  <button onclick="window.location.href='https://checkout.maxelpay.com/?amount=89.99&currency=USD'">
-    Savage $89.99
-  </button>
+    <!-- Savage $89.99 -->
+    <div class="card" onclick="window.location.href='https://checkout.maxelpay.com/?amount=89.99&currency=USD'">
+      <h2>Savage</h2>
+      <p>$89.99 / month</p>
+      <button>Pay with Crypto</button>
+    </div>
+  </div>
 
-  <p>Or pay via <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank">Patreon</a></p>
+  <!-- Patreon -->
+  <a href="https://www.patreon.com/FuturesMove/membership?view_as=patron" target="_blank" class="patreon-link">Or support via Patreon</a>
 </body>
 </html>
