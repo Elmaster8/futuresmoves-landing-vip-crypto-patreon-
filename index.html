@@ -1,141 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FuturesMove VIP</title>
-<style>
-  body {
-    margin:0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #000;
-    color: #fff;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding: 2rem;
-  }
-  h1 {
-    font-size:2.5rem;
-    margin-bottom:2rem;
-  }
-  .tier-card {
-    border: 1px solid #fff;
-    padding:2rem;
-    margin:1rem;
-    width:90%;
-    max-width:400px;
-    border-radius:12px;
-  }
-  input[type="email"] {
-    width:80%;
-    padding:0.5rem;
-    margin-bottom:1rem;
-    border-radius:8px;
-    border:1px solid #fff;
-    background:#000;
-    color:#fff;
-  }
-  .btn {
-    display:block;
-    width:80%;
-    margin:0.5rem auto;
-    padding:0.7rem;
-    font-size:1rem;
-    font-weight:bold;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-  }
-  .btn-patreon { background-color:#e85f5c; color:#fff; }
-  .btn-crypto { background-color:#fff; color:#000; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FuturesMove VIP Access</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0d0d0d;
+      color: #f2f2f2;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      border-bottom: 1px solid #222;
+    }
+    header h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      color: #fff;
+    }
+    header span {
+      color: #bfbfbf;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+    }
+    .email-input {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .email-input input {
+      width: 260px;
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      background: #1a1a1a;
+      color: #fff;
+      outline: none;
+    }
+    .tier-container {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .tier {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .tier:hover {
+      background: #262626;
+      transform: translateY(-5px);
+    }
+    .tier h2 {
+      margin: 10px 0;
+      font-weight: 600;
+      color: #fff;
+    }
+    .tier p {
+      color: #bfbfbf;
+      font-size: 0.95rem;
+      margin: 10px 0 20px;
+    }
+    .tier .price {
+      font-size: 1.2rem;
+      color: #e6e6e6;
+      margin-bottom: 20px;
+    }
+    .tier a {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: #000;
+      border: 1px solid #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .tier a:hover {
+      background: #fff;
+      color: #000;
+    }
+    .confirmation {
+      background-color: #0d0d0d;
+      text-align: center;
+      padding: 50px 20px;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+    .confirmation h2 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .confirmation p {
+      font-size: 1rem;
+      color: #bfbfbf;
+      margin: 5px 0;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      margin: 5px;
+      transition: 0.3s;
+    }
+    footer a:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
 
-<h1>Join VIP</h1>
+  <header>
+    <h1><strong>FuturesMove</strong> <span>VIP Access</span></h1>
+    <p>Join the exclusive trading community that sharpens your edge.</p>
+  </header>
 
-<!-- Chill Tier -->
-<div class="tier-card">
-  <h2>Chill Trader Tier - $39.99</h2>
-  <p>Access to Chill channels</p>
-  <input type="email" id="emailChill" placeholder="Enter your email" required>
-  <button class="btn btn-patreon" onclick="patreonChill()">Pay with Patreon</button>
-  <button class="btn btn-crypto" onclick="cryptoChill()">Pay with Crypto</button>
-</div>
+  <main>
+    <div class="email-input">
+      <input type="email" id="userEmail" placeholder="Enter your email to receive your invite" required>
+    </div>
 
-<!-- Savage Tier -->
-<div class="tier-card">
-  <h2>Savage Trader Tier - $89.99</h2>
-  <p>Access to Savage video + all Chill channels</p>
-  <input type="email" id="emailSavage" placeholder="Enter your email" required>
-  <button class="btn btn-patreon" onclick="patreonSavage()">Pay with Patreon</button>
-  <button class="btn btn-crypto" onclick="cryptoSavage()">Pay with Crypto</button>
-</div>
+    <div class="tier-container">
+      <div class="tier">
+        <h2>💼 Chill Trader</h2>
+        <p>Access to <strong>#mindset-and-risk</strong> and <strong>#vip-signal</strong> channels.</p>
+        <p class="price">$39.99 / month</p>
+        <a href="#" onclick="sendAlert('Chill Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26419838')">Join via Patreon</a>
+        <br><br>
+        <a href="#" onclick="sendAlert('Chill Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5786117795')">Join via Crypto</a>
+      </div>
 
-<script>
-  // Links
-  const links = {
-    chill: {
-      patreon: "https://www.patreon.com/checkout/FuturesMove?rid=26419838",
-      crypto: "https://nowpayments.io/payment/?iid=5786117795",
-      discordWebhook: "https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk",
-      discordInvite: "Patreon handles invite"
-    },
-    savage: {
-      patreon: "https://www.patreon.com/checkout/FuturesMove?rid=26738115",
-      crypto: "https://nowpayments.io/payment/?iid=5441390811",
-      discordWebhook: "https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk",
-      discordInvite: "https://discord.gg/YnkPA52Hv6"
+      <div class="tier">
+        <h2>🔥 Savage Trader</h2>
+        <p>Includes Chill access + <strong>#savage</strong> video calls (1h twice a week).</p>
+        <p class="price">$89.99 / month</p>
+        <a href="#" onclick="sendAlert('Savage Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26738115')">Join via Patreon</a>
+        <br><br>
+        <a href="#" onclick="sendAlert('Savage Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5441390811')">Join via Crypto</a>
+      </div>
+    </div>
+  </main>
+
+  <section class="confirmation">
+    <h2>✅ Payment in Progress</h2>
+    <p>After completing your payment, <strong>check your email</strong> for your Discord VIP invite link.</p>
+    <p>🔗 The link is valid for <strong>48 hours</strong> and your membership lasts <strong>30 days</strong>.</p>
+    <p>If you don’t receive an email within 15 minutes, please message us on Discord or reply to your Patreon message.</p>
+  </section>
+
+  <footer>
+    <p style="color: #bfbfbf;">Join the <strong>FuturesMove</strong> community:</p>
+    <a href="https://discord.gg/3MBd6mRSvC" target="_blank">💬 Discord</a>
+    <a href="https://www.reddit.com/r/Futuresmove/" target="_blank">🔥 Reddit</a>
+  </footer>
+
+  <script>
+    const webhook = "https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk";
+
+    function sendAlert(tier, method, link) {
+      const email = document.getElementById('userEmail').value || "No email entered";
+
+      fetch(webhook, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: "Payment Gate",
+          embeds: [{
+            title: "💸 New Payment Attempt",
+            description: `**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}\n\nPlease verify payment in NOWPayments dashboard before assigning role.`,
+            color: 3447003
+          }]
+        })
+      });
+
+      // Redirect user to payment link after alert
+      setTimeout(() => {
+        window.open(link, "_blank");
+      }, 1000);
     }
-  };
-
-  function patreonChill() {
-    const email = document.getElementById('emailChill').value.trim();
-    if(!email) return alert("Enter your email");
-    fetch(links.chill.discordWebhook,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:`💸 Patreon Chill payment initiated\nEmail: ${email}`})
-    });
-    window.open(links.chill.patreon, '_blank');
-  }
-
-  function cryptoChill() {
-    const email = document.getElementById('emailChill').value.trim();
-    if(!email) return alert("Enter your email");
-    fetch(links.chill.discordWebhook,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:`💸 Crypto Chill payment link clicked\nEmail: ${email}\nPayment link: ${links.chill.crypto}`})
-    });
-    window.open(links.chill.crypto,'_blank');
-  }
-
-  function patreonSavage() {
-    const email = document.getElementById('emailSavage').value.trim();
-    if(!email) return alert("Enter your email");
-    fetch(links.savage.discordWebhook,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:`💸 Patreon Savage payment initiated\nEmail: ${email}\nInvite: ${links.savage.discordInvite}`})
-    });
-    window.open(links.savage.patreon, '_blank');
-  }
-
-  function cryptoSavage() {
-    const email = document.getElementById('emailSavage').value.trim();
-    if(!email) return alert("Enter your email");
-    fetch(links.savage.discordWebhook,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({content:`💸 Crypto Savage payment link clicked\nEmail: ${email}\nPayment link: ${links.savage.crypto}\nInvite: ${links.savage.discordInvite}`})
-    });
-    window.open(links.savage.crypto,'_blank');
-  }
-</script>
+  </script>
 
 </body>
 </html>
