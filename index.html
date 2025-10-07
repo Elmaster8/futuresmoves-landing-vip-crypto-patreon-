@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FuturesMove VIP Access</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -12,38 +12,47 @@
       background-color: #0d0d0d;
       color: #f2f2f2;
     }
+
     header {
       text-align: center;
       padding: 60px 20px 20px;
       border-bottom: 1px solid #222;
     }
     header h1 {
-      font-weight: 600;
-      font-size: 2rem;
+      font-weight: 800;
+      font-size: 2.2rem;
       color: #fff;
     }
     header span {
       color: #bfbfbf;
     }
+    header p {
+      color: #bfbfbf;
+      margin-top: 10px;
+    }
+
     main {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 60px 20px;
+      padding: 40px 20px;
     }
+
     .email-input {
       margin-bottom: 40px;
       text-align: center;
     }
     .email-input input {
-      width: 260px;
-      padding: 10px;
+      width: 300px;
+      padding: 12px;
       border: 1px solid #444;
       border-radius: 8px;
       background: #1a1a1a;
       color: #fff;
       outline: none;
+      text-align: center;
     }
+
     .tier-container {
       max-width: 900px;
       width: 100%;
@@ -52,6 +61,7 @@
       gap: 30px;
       margin-bottom: 60px;
     }
+
     .tier {
       background: #1a1a1a;
       border: 1px solid #333;
@@ -60,25 +70,31 @@
       text-align: center;
       transition: all 0.3s ease;
     }
+
     .tier:hover {
       background: #262626;
       transform: translateY(-5px);
     }
+
     .tier h2 {
       margin: 10px 0;
       font-weight: 600;
       color: #fff;
+      font-size: 1.5rem;
     }
+
     .tier p {
       color: #bfbfbf;
       font-size: 0.95rem;
       margin: 10px 0 20px;
     }
+
     .tier .price {
       font-size: 1.2rem;
       color: #e6e6e6;
       margin-bottom: 20px;
     }
+
     .tier a {
       display: inline-block;
       text-decoration: none;
@@ -89,11 +105,14 @@
       border-radius: 8px;
       font-weight: 600;
       transition: 0.3s;
+      margin-bottom: 10px;
     }
+
     .tier a:hover {
       background: #fff;
       color: #000;
     }
+
     .confirmation {
       background-color: #0d0d0d;
       text-align: center;
@@ -101,20 +120,24 @@
       border-top: 1px solid #222;
       border-bottom: 1px solid #222;
     }
+
     .confirmation h2 {
       font-size: 1.6rem;
       margin-bottom: 15px;
       color: #fff;
     }
+
     .confirmation p {
       font-size: 1rem;
       color: #bfbfbf;
       margin: 5px 0;
     }
+
     footer {
       text-align: center;
       padding: 40px 20px;
     }
+
     footer a {
       color: #fff;
       text-decoration: none;
@@ -125,9 +148,16 @@
       margin: 5px;
       transition: 0.3s;
     }
+
     footer a:hover {
       background-color: #fff;
       color: #000;
+    }
+
+    @media (max-width: 600px) {
+      .email-input input {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -146,29 +176,27 @@
     <div class="tier-container">
       <div class="tier">
         <h2>💼 Chill Trader</h2>
-        <p>Access to <strong>#mindset-and-risk</strong> and <strong>#vip-signal</strong> channels.</p>
+        <p>Access <strong>#mindset-and-risk</strong> and <strong>#vip-signal</strong> channels.</p>
         <p class="price">$39.99 / month</p>
-        <a href="#" onclick="sendAlert('Chill Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26419838')">Join via Patreon</a>
-        <br><br>
-        <a href="#" onclick="sendAlert('Chill Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5786117795')">Join via Crypto</a>
+        <a href="#" onclick="sendAlert('Chill Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26419838', 'https://discord.gg/3MBd6mRSvC')">Join via Patreon</a>
+        <a href="#" onclick="sendAlert('Chill Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5786117795', 'https://discord.gg/3MBd6mRSvC')">Join via Crypto</a>
       </div>
 
       <div class="tier">
         <h2>🔥 Savage Trader</h2>
         <p>Includes Chill access + <strong>#savage</strong> video calls (1h twice a week).</p>
         <p class="price">$89.99 / month</p>
-        <a href="#" onclick="sendAlert('Savage Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26738115')">Join via Patreon</a>
-        <br><br>
-        <a href="#" onclick="sendAlert('Savage Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5441390811')">Join via Crypto</a>
+        <a href="#" onclick="sendAlert('Savage Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26738115', 'https://discord.gg/YnkPA52Hv6')">Join via Patreon</a>
+        <a href="#" onclick="sendAlert('Savage Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=5441390811', 'https://discord.gg/YnkPA52Hv6')">Join via Crypto</a>
       </div>
     </div>
   </main>
 
   <section class="confirmation">
     <h2>✅ Payment in Progress</h2>
-    <p>After completing your payment, <strong>check your email</strong> for your Discord VIP invite link.</p>
-    <p>🔗 The link is valid for <strong>48 hours</strong> and your membership lasts <strong>30 days</strong>.</p>
-    <p>If you don’t receive an email within 15 minutes, please message us on Discord or reply to your Patreon message.</p>
+    <p>After clicking a payment button, <strong>check your email</strong> for your VIP Discord invite link <em>only after payment is confirmed</em>.</p>
+    <p>🔗 Link valid for <strong>48 hours</strong> — Membership lasts <strong>30 days</strong>.</p>
+    <p>If you don’t receive an email within 15 minutes, please message us on Discord or Patreon.</p>
   </section>
 
   <footer>
@@ -180,9 +208,10 @@
   <script>
     const webhook = "https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk";
 
-    function sendAlert(tier, method, link) {
+    function sendAlert(tier, method, link, inviteLink) {
       const email = document.getElementById('userEmail').value || "No email entered";
 
+      // Discord webhook notification
       fetch(webhook, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -190,15 +219,16 @@
           username: "Payment Gate",
           embeds: [{
             title: "💸 New Payment Attempt",
-            description: `**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}\n\nPlease verify payment in NOWPayments dashboard before assigning role.`,
+            description: `**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}\n\nPlease verify payment in NOWPayments/Patreon dashboard before assigning role.`,
             color: 3447003
           }]
         })
       });
 
-      // Redirect user to payment link after alert
+      // Redirect to payment page after alert
       setTimeout(() => {
         window.open(link, "_blank");
+        alert("Check your email after payment is confirmed for your exclusive Discord VIP invite!");
       }, 1000);
     }
   </script>
