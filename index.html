@@ -1,229 +1,45 @@
-<!DOCTYPE html>
+from pathlib import Path
+html = """<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-
-<!-- Cryptomus Domain Verification -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="cryptomus" content="b04de4cc" />
-  <title>FuturesMove VIP Access</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 20px;
-      border-bottom: 1px solid #222;
-    }
-    header h1 {
-      font-weight: 800;
-      font-size: 2rem;
-      color: #fff;
-    }
-    header span {
-      color: #bfbfbf;
-    }
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-    }
-    .email-input {
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .email-input input {
-      width: 300px;
-      padding: 12px;
-      border: 1px solid #444;
-      border-radius: 8px;
-      background: #1a1a1a;
-      color: #fff;
-      outline: none;
-      text-align: center;
-      transition: border 0.3s;
-    }
-    .email-input input:focus {
-      border: 1px solid #bfbfbf;
-    }
-    .tier-container {
-      max-width: 900px;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-    .tier {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .tier:hover {
-      background: #262626;
-      box-shadow: 0 8px 20px rgba(255,255,255,0.05);
-      transform: translateY(-5px);
-    }
-    .tier h2 {
-      margin: 10px 0;
-      font-weight: 600;
-      color: #fff;
-    }
-    .tier p {
-      color: #bfbfbf;
-      font-size: 0.95rem;
-      margin: 10px 0 20px;
-    }
-    .tier .price {
-      font-size: 1.2rem;
-      color: #e6e6e6;
-      margin-bottom: 20px;
-    }
-    .tier a {
-      display: inline-block;
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .chill {
-      background: #c0c0c0;
-      border: 1px solid #e0e0e0;
-    }
-    .chill:hover {
-      background: #e0e0e0;
-      color: #000;
-    }
-    .savage {
-      background: #0a0a0a;
-      border: 1px solid #222;
-    }
-    .savage:hover {
-      background: #222;
-      color: #fff;
-    }
-    .confirmation {
-      background-color: #0d0d0d;
-      text-align: center;
-      padding: 50px 20px;
-      border-top: 1px solid #222;
-      border-bottom: 1px solid #222;
-    }
-    .confirmation h2 {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-    .confirmation p {
-      font-size: 1rem;
-      color: #bfbfbf;
-      margin: 5px 0;
-    }
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      border: 1px solid #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
-      display: inline-block;
-      margin: 5px;
-      transition: 0.3s;
-    }
-    footer a:hover {
-      background-color: #fff;
-      color: #000;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1><strong>FuturesMove</strong> <span>VIP Access</span></h1>
-  <p>Join the exclusive trading community that sharpens your edge.</p>
-</header>
-
+<title>FuturesMove VIP Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:Montserrat,sans-serif;background:#0d0d0d;color:#f2f2f2}
+header{text-align:center;padding:60px 20px 20px;border-bottom:1px solid #222}
+main{display:flex;flex-direction:column;align-items:center;padding:40px 20px}
+.email-input input{width:300px;padding:12px;border:1px solid #444;border-radius:8px;background:#1a1a1a;color:#fff;text-align:center}
+.tier-container{max-width:900px;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+.tier{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:30px;text-align:center}
+a.btn{display:inline-block;padding:12px 25px;border-radius:8px;color:#fff;text-decoration:none;margin:6px}
+.chill{background:#c0c0c0}.savage{background:#111}
+.confirmation,footer{text-align:center;padding:40px 20px}
+</style></head><body>
+<header><h1>FuturesMove <span>VIP Access</span></h1><p>Join the exclusive trading community that sharpens your edge.</p></header>
 <main>
-  <div class="email-input">
-    <input type="email" id="userEmail" placeholder="Enter your email to receive your invite" required>
-  </div>
-
-  <div class="tier-container">
-    <div class="tier">
-      <h2>❄️ Chill Trader</h2>
-      <p>Access to <strong>#mindset-and-risk</strong> and <strong>#vip-signal</strong> channels.</p>
-      <p class="price">$35 (Crypto)</p>
-      <a href="#" class="chill" onclick="triggerGate('Chill Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26419838')">Join via Patreon</a>
-      <a href="#" class="chill" onclick="triggerGate('Chill Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=4906969489')">Join via Crypto</a>
-    </div>
-
-    <div class="tier">
-      <h2>🔥 Savage Trader</h2>
-      <p>Includes Chill access + <strong>#savage</strong> video calls (1h twice a week).</p>
-      <p class="price">$70 (Crypto)</p>
-      <a href="#" class="savage" onclick="triggerGate('Savage Trader', 'Patreon', 'https://www.patreon.com/checkout/FuturesMove?rid=26738115')">Join via Patreon</a>
-      <a href="#" class="savage" onclick="triggerGate('Savage Trader', 'Crypto', 'https://nowpayments.io/payment/?iid=6238964374')">Join via Crypto</a>
-    </div>
-  </div>
-</main>
-
-<section class="confirmation">
-  <h2>✅ Payment in Progress</h2>
-  <p>After clicking a payment button, <strong>check your email</strong> for your Discord VIP invite link <em>only after payment is confirmed</em>.</p>
-  <p>🔗 Link valid for <strong>48 hours</strong> — Membership lasts <strong>30 days</strong>.</p>
-  <p>If you don’t receive an email within 15 minutes, please message us on Discord or Patreon.</p>
-</section>
-
-<footer>
-  <p style="color: #bfbfbf;">Join the <strong>FuturesMove</strong> community:</p>
-  <a href="https://discord.gg/3MBd6mRSvC" target="_blank">💬 Discord</a>
-  <a href="https://www.reddit.com/r/Futuresmove/" target="_blank">🔥 Reddit</a>
-</footer>
-
+<div class="email-input"><input type="email" id="userEmail" placeholder="Enter your email to receive your invite"></div>
+<div class="tier-container">
+<div class="tier"><h2>❄️ Chill Trader</h2><p>Access to <b>#mindset-and-risk</b> and <b>#vip-signal</b>.</p><p>$35/month • Crypto via Copperx</p>
+<a class="btn chill" href="#" onclick="triggerGate('Chill Trader','Patreon','https://www.patreon.com/checkout/FuturesMove?rid=26419838')">Join via Patreon</a>
+<a class="btn chill" href="#" onclick="triggerGate('Chill Trader','Crypto','https://buy.copperx.io/payment/payment-link/468f056e-9518-4735-86e9-31074e6c8371')">Join via Crypto</a></div>
+<div class="tier"><h2>🔥 Savage Trader</h2><p>Includes Chill + #savage calls.</p><p>$70/month • Crypto via Copperx</p>
+<a class="btn savage" href="#" onclick="triggerGate('Savage Trader','Patreon','https://www.patreon.com/checkout/FuturesMove?rid=26738115')">Join via Patreon</a>
+<a class="btn savage" href="#" onclick="triggerGate('Savage Trader','Crypto','https://buy.copperx.io/payment/payment-link/9944d824-2074-4caa-832e-0b84bdb0c8a0')">Join via Crypto</a></div>
+</div></main>
+<section class="confirmation"><h2>✅ Payment in Progress</h2><p>Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.</p></section>
+<footer><a href="https://discord.gg/3MBd6mRSvC">Discord</a> | <a href="https://www.reddit.com/r/Futuresmove/">Reddit</a></footer>
 <script>
-  const webhook = "https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk";
-
-  function triggerGate(tier, method, link) {
-    const email = document.getElementById('userEmail').value;
-    if(!email) {
-      alert("Please enter your email first!");
-      return;
-    }
-
-    fetch(webhook, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: "Payment Gate",
-        embeds: [{
-          title: "💸 New Payment Attempt",
-          description: `**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}\n\nPlease verify payment before assigning role.`,
-          color: 3447003
-        }]
-      })
-    });
-
-    setTimeout(() => {
-      window.open(link, "_blank");
-      alert("Check your email after payment is confirmed for your VIP invite link!");
-    }, 1000);
-  }
-</script>
-
-</body>
-</html>
+const webhook="https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk";
+function triggerGate(tier,method,link){
+const email=document.getElementById('userEmail').value;
+if(!email){alert('Please enter your email first!');return;}
+fetch(webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Payment Gate',embeds:[{title:'💸 New Payment Attempt',description:`**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}`,color:3447003}]})});
+setTimeout(()=>{window.open(link,'_blank');alert('Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.');},1000);
+}
+</script></body></html>"""
+path="/mnt/data/FuturesMove_Copperx_Index.html"
+Path(path).write_text(html,encoding="utf-8")
+print(path)
