@@ -32,11 +32,11 @@ a.btn{display:inline-block;padding:12px 25px;border-radius:8px;color:#fff;text-d
 <section class="confirmation"><h2>✅ Payment in Progress</h2><p>Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.</p></section>
 <footer><a href="https://discord.gg/3MBd6mRSvC">Discord</a> | <a href="https://www.reddit.com/r/Futuresmove/">Reddit</a></footer>
 <script>
-const webhook="https://discord.com/api/webhooks/1424444258298888352/GiQRqdljPhQ6OIXSLhV1fOjINxVH4dh8UQZvWNNlr4Qa93Cr4odhGkCqsDxIWZl-2YCk";
+const workerURL="https://payment-gate.davamadeus8.workers.dev";
 function triggerGate(tier,method,link){
 const email=document.getElementById('userEmail').value;
 if(!email){alert('Please enter your email first!');return;}
-fetch(webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Payment Gate',embeds:[{title:'💸 New Payment Attempt',description:`**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}`,color:3447003}]})});
+fetch(workerURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Payment Gate',embeds:[{title:'💸 New Payment Attempt',description:`**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}`,color:3447003}]})});
 setTimeout(()=>{window.open(link,'_blank');alert('Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.');},1000);
 }
 </script></body></html>"""
