@@ -1,45 +1,465 @@
-from pathlib import Path
-html = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="cryptomus" content="b04de4cc" />
+
 <title>FuturesMove VIP Access</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+
 <style>
-body{margin:0;font-family:Montserrat,sans-serif;background:#0d0d0d;color:#f2f2f2}
-header{text-align:center;padding:60px 20px 20px;border-bottom:1px solid #222}
-main{display:flex;flex-direction:column;align-items:center;padding:40px 20px}
-.email-input input{width:300px;padding:12px;border:1px solid #444;border-radius:8px;background:#1a1a1a;color:#fff;text-align:center}
-.tier-container{max-width:900px;width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.tier{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:30px;text-align:center}
-a.btn{display:inline-block;padding:12px 25px;border-radius:8px;color:#fff;text-decoration:none;margin:6px}
-.chill{background:#c0c0c0}.savage{background:#111}
-.confirmation,footer{text-align:center;padding:40px 20px}
-</style></head><body>
-<header><h1>FuturesMove <span>VIP Access</span></h1><p>Join the exclusive trading community that sharpens your edge.</p></header>
-<main>
-<div class="email-input"><input type="email" id="userEmail" placeholder="Enter your email to receive your invite"></div>
-<div class="tier-container">
-<div class="tier"><h2>❄️ Chill Trader</h2><p>Access to <b>#mindset-and-risk</b> and <b>#vip-signal</b>.</p><p>$35/month • Crypto via Copperx</p>
-<a class="btn chill" href="#" onclick="triggerGate('Chill Trader','Patreon','https://www.patreon.com/checkout/FuturesMove?rid=26419838')">Join via Patreon</a>
-<a class="btn chill" href="#" onclick="triggerGate('Chill Trader','Crypto','https://buy.copperx.io/payment/payment-link/468f056e-9518-4735-86e9-31074e6c8371')">Join via Crypto</a></div>
-<div class="tier"><h2>🔥 Savage Trader</h2><p>Includes Chill + #savage calls.</p><p>$70/month • Crypto via Copperx</p>
-<a class="btn savage" href="#" onclick="triggerGate('Savage Trader','Patreon','https://www.patreon.com/checkout/FuturesMove?rid=26738115')">Join via Patreon</a>
-<a class="btn savage" href="#" onclick="triggerGate('Savage Trader','Crypto','https://buy.copperx.io/payment/payment-link/9944d824-2074-4caa-832e-0b84bdb0c8a0')">Join via Crypto</a></div>
-</div></main>
-<section class="confirmation"><h2>✅ Payment in Progress</h2><p>Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.</p></section>
-<footer><a href="https://discord.gg/3MBd6mRSvC">Discord</a> | <a href="https://www.reddit.com/r/Futuresmove/">Reddit</a></footer>
-<script>
-const workerURL="https://payment-gate.davamadeus8.workers.dev";
-function triggerGate(tier,method,link){
-const email=document.getElementById('userEmail').value;
-if(!email){alert('Please enter your email first!');return;}
-fetch(workerURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({username:'Payment Gate',embeds:[{title:'💸 New Payment Attempt',description:`**Tier:** ${tier}\n**Method:** ${method}\n**Email:** ${email}`,color:3447003}]})});
-setTimeout(()=>{window.open(link,'_blank');alert('Check your email after your payment is confirmed. Your Discord VIP invite will be sent shortly.');},1000);
+
+body{
+margin:0;
+font-family:Montserrat,sans-serif;
+background:#080b12;
+color:white;
 }
-</script></body></html>"""
-path="/mnt/data/FuturesMove_Copperx_Index.html"
-Path(path).write_text(html,encoding="utf-8")
-print(path)
+
+
+header{
+text-align:center;
+padding:70px 20px;
+border-bottom:1px solid #222;
+}
+
+
+h1{
+font-size:45px;
+}
+
+
+.green{
+color:#00d084;
+}
+
+
+main{
+
+display:flex;
+justify-content:center;
+padding:50px 20px;
+
+}
+
+
+.container{
+
+max-width:1000px;
+width:100%;
+
+}
+
+
+
+.email-box{
+
+text-align:center;
+margin-bottom:40px;
+
+}
+
+
+.email-box input{
+
+padding:15px;
+width:300px;
+background:#111;
+border:1px solid #444;
+border-radius:10px;
+color:white;
+
+}
+
+
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+
+}
+
+
+
+.card{
+
+background:#121722;
+border:1px solid #333;
+padding:35px;
+border-radius:15px;
+text-align:center;
+
+}
+
+
+
+.card:hover{
+
+border-color:#00d084;
+
+}
+
+
+
+button{
+
+padding:14px 25px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+margin:8px;
+font-weight:bold;
+
+}
+
+
+
+.crypto{
+
+background:#00d084;
+
+}
+
+
+
+.patreon{
+
+background:#ff424d;
+color:white;
+
+}
+
+
+
+footer{
+
+text-align:center;
+padding:50px;
+
+}
+
+
+footer a{
+
+color:#00d084;
+margin:10px;
+text-decoration:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+<h1>
+FuturesMove <span class="green">VIP</span>
+</h1>
+
+<p>
+Master Risk. Master Yourself. Master The Markets.
+</p>
+
+</header>
+
+
+
+
+<main>
+
+<div class="container">
+
+
+
+<div class="email-box">
+
+<input 
+id="userEmail"
+type="email"
+placeholder="Enter your email">
+
+</div>
+
+
+
+
+<div class="cards">
+
+
+
+<div class="card">
+
+
+<h2>❄️ Chill Trader</h2>
+
+
+<p>
+
+Discord VIP Access
+
+<br>
+
+Risk Management
+
+<br>
+
+Trading Psychology
+
+<br>
+
+Market Analysis
+
+</p>
+
+
+
+<h3>$35/month Crypto</h3>
+
+
+<button 
+class="crypto"
+onclick="triggerGate(
+'Chill Trader',
+'Crypto',
+'https://buy.copperx.io/payment/payment-link/468f056e-9518-4735-86e9-31074e6c8371'
+)">
+Join Crypto
+</button>
+
+
+
+<button
+class="patreon"
+onclick="triggerGate(
+'Chill Trader',
+'Patreon',
+'https://www.patreon.com/checkout/FuturesMove?rid=26419838'
+)">
+Join Patreon
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>🔥 Savage Trader</h2>
+
+
+<p>
+
+Everything in Chill
+
+<br>
+
+Advanced Setups
+
+<br>
+
+Premium Channel
+
+<br>
+
+Priority Access
+
+</p>
+
+
+
+<h3>$70/month Crypto</h3>
+
+
+
+<button 
+class="crypto"
+onclick="triggerGate(
+'Savage Trader',
+'Crypto',
+'https://buy.copperx.io/payment/payment-link/9944d824-2074-4caa-832e-0b84bdb0c8a0'
+)">
+Join Crypto
+</button>
+
+
+
+
+<button
+class="patreon"
+onclick="triggerGate(
+'Savage Trader',
+'Patreon',
+'https://www.patreon.com/checkout/FuturesMove?rid=26738115'
+)">
+Join Patreon
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+<footer>
+
+
+<a href="https://discord.gg/3MBd6mRSvC">
+Discord
+</a>
+
+
+<a href="https://www.reddit.com/r/Futuresmove/">
+Reddit
+</a>
+
+
+<a href="https://tiktok.com/@futuresmove">
+TikTok
+</a>
+
+
+<a href="https://truthsocial.com/@FuturesMove">
+Truth Social
+</a>
+
+
+
+</footer>
+
+
+
+
+
+
+
+<script>
+
+
+// Cloudflare Worker URL
+
+const workerURL =
+"https://payment-gate.davamadeus8.workers.dev";
+
+
+
+
+
+function triggerGate(tier,method,link){
+
+
+
+const email =
+document.getElementById("userEmail").value;
+
+
+
+if(!email){
+
+alert("Please enter your email first");
+
+return;
+
+}
+
+
+
+
+
+fetch(workerURL,{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+
+body:JSON.stringify({
+
+tier:tier,
+
+method:method,
+
+email:email
+
+})
+
+
+})
+
+.then(response=>{
+
+
+if(!response.ok){
+
+throw new Error("Worker failed");
+
+}
+
+
+window.open(link,"_blank");
+
+
+})
+
+
+.catch(error=>{
+
+
+console.error(error);
+
+
+alert("Error contacting payment system");
+
+
+});
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
