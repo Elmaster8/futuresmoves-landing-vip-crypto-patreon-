@@ -56,27 +56,6 @@ width:100%;
 
 
 
-.email-box{
-
-text-align:center;
-margin-bottom:40px;
-
-}
-
-
-.email-box input{
-
-padding:15px;
-width:300px;
-background:#111;
-border:1px solid #444;
-border-radius:10px;
-color:white;
-
-}
-
-
-
 .cards{
 
 display:grid;
@@ -184,18 +163,6 @@ Master Risk. Master Yourself. Master The Markets.
 
 
 
-<div class="email-box">
-
-<input 
-id="userEmail"
-type="email"
-placeholder="Enter your email">
-
-</div>
-
-
-
-
 <div class="cards">
 
 
@@ -209,17 +176,11 @@ placeholder="Enter your email">
 <p>
 
 Discord VIP Access
-
 <br>
-
 Risk Management
-
 <br>
-
 Trading Psychology
-
 <br>
-
 Market Analysis
 
 </p>
@@ -231,24 +192,20 @@ Market Analysis
 
 <button 
 class="crypto"
-onclick="triggerGate(
-'Chill Trader',
-'Crypto',
-'https://buy.copperx.io/payment/payment-link/468f056e-9518-4735-86e9-31074e6c8371'
-)">
+onclick="openPayment('https://buy.copperx.io/payment/payment-link/468f056e-9518-4735-86e9-31074e6c8371')">
+
 Join Crypto
+
 </button>
 
 
 
 <button
 class="patreon"
-onclick="triggerGate(
-'Chill Trader',
-'Patreon',
-'https://www.patreon.com/checkout/FuturesMove?rid=26419838'
-)">
+onclick="openPayment('https://www.patreon.com/checkout/FuturesMove?rid=26419838')">
+
 Join Patreon
+
 </button>
 
 
@@ -270,17 +227,11 @@ Join Patreon
 <p>
 
 Everything in Chill
-
 <br>
-
 Advanced Setups
-
 <br>
-
 Premium Channel
-
 <br>
-
 Priority Access
 
 </p>
@@ -293,12 +244,10 @@ Priority Access
 
 <button 
 class="crypto"
-onclick="triggerGate(
-'Savage Trader',
-'Crypto',
-'https://buy.copperx.io/payment/payment-link/9944d824-2074-4caa-832e-0b84bdb0c8a0'
-)">
+onclick="openPayment('https://buy.copperx.io/payment/payment-link/9944d824-2074-4caa-832e-0b84bdb0c8a0')">
+
 Join Crypto
+
 </button>
 
 
@@ -306,12 +255,10 @@ Join Crypto
 
 <button
 class="patreon"
-onclick="triggerGate(
-'Savage Trader',
-'Patreon',
-'https://www.patreon.com/checkout/FuturesMove?rid=26738115'
-)">
+onclick="openPayment('https://www.patreon.com/checkout/FuturesMove?rid=26738115')">
+
 Join Patreon
+
 </button>
 
 
@@ -368,91 +315,11 @@ Truth Social
 <script>
 
 
-// Cloudflare Worker URL
-
-const workerURL =
-"https://payment-gate.davamadeus8.workers.dev";
-
-
-
-
-
-function triggerGate(tier,method,link){
-
-
-
-const email =
-document.getElementById("userEmail").value;
-
-
-
-if(!email){
-
-alert("Please enter your email first");
-
-return;
-
-}
-
-
-
-
-
-fetch(workerURL,{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-
-body:JSON.stringify({
-
-tier:tier,
-
-method:method,
-
-email:email
-
-})
-
-
-})
-
-.then(response=>{
-
-
-if(!response.ok){
-
-throw new Error("Worker failed");
-
-}
-
+function openPayment(link){
 
 window.open(link,"_blank");
 
-
-})
-
-
-.catch(error=>{
-
-
-console.error(error);
-
-
-alert("Error contacting payment system");
-
-
-});
-
-
-
 }
-
 
 
 </script>
